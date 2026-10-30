@@ -11,14 +11,10 @@ package bai.thuc.hanh.tuan.pkg3;
 import java.util.Scanner;
 public class BaiThucHanhTuan3 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
 
-        // bai 1: nhap thong tin sach
+        // nhap thong tin sach
         String maSach, tenSach, tacGia;
         int namXuatBan, soLuong;
         double donGia;
@@ -41,17 +37,76 @@ public class BaiThucHanhTuan3 {
         System.out.print("Nhap so luong: ");
         soLuong = Integer.parseInt(sc.nextLine());
 
-        // bai 2: tinh thanh tien
-        double thanhTien = donGia * soLuong;
+        // bai 1: kiem tra tinh hop le cua sach
+        System.out.println("\n BAI 1: KIEM TRA SACH ");
 
-        // bai3: tinh phi van chuyen
-        double phiVanChuyen = thanhTien * 5 / 100;
+        if (donGia > 0 && soLuong >= 0
+                && namXuatBan > 0 && namXuatBan <= 2026) {
+            System.out.println("Thong tin sach hop le!");
+        } else {
+            System.out.println("Thong tin sach khong hop le!");
+        }
 
-        // bai4: tinh tong tien nhap
-        double tongTien = thanhTien + phiVanChuyen;
+        // bai 2: phan loai gia sach
+        System.out.println("\n BAI 2: PHAN LOAI GIA ");
 
-        // hien thi thong tin sach
-        System.out.println("\nTHONG TIN SACH");
+        if (donGia <= 0) {
+            System.out.println("Gia sach khong hop le!");
+        } else if (donGia < 50000) {
+            System.out.println("Sach gia thap");
+        } else if (donGia <= 100000) {
+            System.out.println("Sach gia trung binh");
+        } else if (donGia <= 200000) {
+            System.out.println("Sach gia cao");
+        } else {
+            System.out.println("Sach gia dac biet");
+        }
+
+        // bai 3: phan loai ton kho
+        System.out.println("\n BAI 3: PHAN LOAI TON KHO ");
+
+        if (soLuong < 0) {
+            System.out.println("So luong khong hop le!");
+        } else if (soLuong == 0) {
+            System.out.println("Het sach");
+        } else if (soLuong <= 5) {
+            System.out.println("Sap het sach");
+        } else if (soLuong <= 20) {
+            System.out.println("Con it sach");
+        } else {
+            System.out.println("Con nhieu sach");
+        }
+
+        // bai 4: chon loai sach bang switch
+        System.out.println("\n BAI 4: LOAI SACH ");
+
+        System.out.println("1. Sach giao khoa");
+        System.out.println("2. Sach tham khao");
+        System.out.println("3. Sach chuyen nganh");
+        System.out.println("4. Sach khac");
+
+        System.out.print("Nhap lua chon loai sach: ");
+        int loaiSach = Integer.parseInt(sc.nextLine());
+
+        switch (loaiSach) {
+            case 1:
+                System.out.println("Loai sach: Sach giao khoa");
+                break;
+            case 2:
+                System.out.println("Loai sach: Sach tham khao");
+                break;
+            case 3:
+                System.out.println("Loai sach: Sach chuyen nganh");
+                break;
+            case 4:
+                System.out.println("Loai sach: Sach khac");
+                break;
+            default:
+                System.out.println("Lua chon khong hop le!");
+        }
+
+        // Hien thi lai thong tin sach
+        System.out.println("\n THONG TIN SACH ");
         System.out.println("Ma sach: " + maSach);
         System.out.println("Ten sach: " + tenSach);
         System.out.println("Tac gia: " + tacGia);
@@ -59,14 +114,6 @@ public class BaiThucHanhTuan3 {
         System.out.println("Don gia: " + donGia);
         System.out.println("So luong: " + soLuong);
 
-        System.out.println("\nKET QUA");
-        System.out.println("Thanh tien: " + thanhTien);
-        System.out.println("Phi van chuyen: " + phiVanChuyen);
-        System.out.println("Tong tien nhap: " + tongTien);
-
         sc.close();
     }
 }
-
-
- 
